@@ -1,17 +1,22 @@
 import { Directive, ElementRef, HostBinding, Input } from "@angular/core";
 
+export enum FlexDirection {
+  Column = 'column',
+  Row = 'row'
+}
+
 @Directive({
-  selector: "[flexDirection]"
+  selector: "[appFlexDirection]"
 })
 export class FlexDirectionDirective {
-  private _flexDirection = 'column';
+  private _appFlexDirection = 'column';
   @Input() 
-  set flexDirection(value) {
-    this._flexDirection = value;
-    console.log('log:this._flexDirection =', value);
+  set appFlexDirection(value) {
+    this._appFlexDirection = value;
+    console.log('log:this._appFlexDirection =', value);
   };
-  get flexDirection() {
-    return this._flexDirection;
+  get appFlexDirection() {
+    return this._appFlexDirection;
   };
 
   constructor(el: ElementRef) {
@@ -19,9 +24,9 @@ export class FlexDirectionDirective {
     el.nativeElement.style.display = "flex";
   }
 
-  @HostBinding('style.flexDirection')
+  @HostBinding('style.FlexDirection')
   get cssClasses() {
-      return this.flexDirection;
+      return this.appFlexDirection;
   }
 
 }
