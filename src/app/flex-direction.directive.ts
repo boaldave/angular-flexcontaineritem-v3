@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostBinding, Input } from "@angular/core";
 
 @Directive({
-  selector: "[bi-flex-direction]"
+  selector: "[flexDirection]"
 })
 export class FlexDirectionDirective {
   private _flexDirection = 'column';
